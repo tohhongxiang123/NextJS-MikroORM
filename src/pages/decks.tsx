@@ -1,8 +1,10 @@
+import { Button, TextInput } from '@mantine/core';
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { getSession, useSession } from 'next-auth/react';
 import React, { useState } from 'react';
 import { Deck } from '../../lib/entities';
 import { getDecksByUserID } from '../../lib/services';
+import { Layout } from '../components';
 import { trpc } from '../utils/trpc';
 
 export default function DeckPage({
@@ -22,7 +24,7 @@ export default function DeckPage({
     };
 
     return (
-        <div>
+        <Layout>
             <h1>Decks</h1>
             <ul>
                 {decks.map(deck => (
@@ -32,23 +34,25 @@ export default function DeckPage({
                 ))}
             </ul>
             <form onSubmit={handleCreateDeck}>
-                <input
+                <TextInput
+                    label="Name"
                     type="text"
                     value={name}
                     onChange={e => setName(e.target.value)}
                 />
-                <input
+                <TextInput
+                    label="Description"
                     type="text"
                     value={description}
                     onChange={e => setDescription(e.target.value)}
                 />
-                <button type="submit" disabled={mutation.isLoading}>
+                <Button type="submit" disabled={mutation.isLoading}>
                     Create deck
-                </button>
+                </Button>
                 {mutation.error && <p>{mutation.error.message}</p>}
                 {mutation.isSuccess && <p>Success</p>}
             </form>
-        </div>
+        </Layout>
     );
 }
 
