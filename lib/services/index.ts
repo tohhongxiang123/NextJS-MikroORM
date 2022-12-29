@@ -1,6 +1,6 @@
 import createDeck from "./createDeck";
-import getDeckByUserID from "./getDeckByUserID";
+import getDecksByUserID from "./getDecksByUserID";
 
 export {
-    createDeck, getDeckByUserID
+    createDeck, getDecksByUserID
 };
