@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "next-nextauth-mikroorm-postgres-trpc-mantine-tailwind",
   "version": "0.1.0",
   "private": true,
   "scripts": {
