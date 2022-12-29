@@ -1,9 +1,7 @@
-import { getEMFork } from "../database/orm";
-import { Deck, User } from "../entities";
+import { getEMFork } from '../database/orm';
+import { Deck, User } from '../entities';
 
-export default async function getDecksByUserID(userID: User["id"]) {
-    const emFork = await getEMFork()
-    const decks = await emFork.find<Deck>("Deck", { created_by: userID })
-
-    return decks
+export default async function getDecksByUserID(userID: User['id']) {
+    const emFork = await getEMFork();
+    return await emFork.find<Deck>('Deck', { created_by: userID });
 }

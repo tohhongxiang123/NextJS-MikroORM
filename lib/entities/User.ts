@@ -5,7 +5,7 @@ import {
     OneToMany,
     PrimaryKey,
     Property,
-    Unique
+    Unique,
 } from '@mikro-orm/core';
 import { defaultEntities } from '@next-auth/mikro-orm-adapter';
 import { Account, Session } from '@next-auth/mikro-orm-adapter/dist/entities';
@@ -33,7 +33,7 @@ export class User implements defaultEntities.User {
 
     @OneToMany({
         entity: () => MikroOrmSession,
-        mappedBy: (session) => session.user,
+        mappedBy: session => session.user,
         hidden: true,
         orphanRemoval: true,
         cascade: [Cascade.ALL],
@@ -42,7 +42,7 @@ export class User implements defaultEntities.User {
 
     @OneToMany({
         entity: () => MikroOrmAccount,
-        mappedBy: (account) => account.user,
+        mappedBy: account => account.user,
         hidden: true,
         orphanRemoval: true,
         cascade: [Cascade.ALL],

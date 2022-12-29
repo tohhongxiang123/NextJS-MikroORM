@@ -8,23 +8,19 @@ export const deckRouter = router({
             z.object({
                 name: z.string(),
                 description: z.string(),
-                userID: z.string()
-            }),
+                userID: z.string(),
+            })
         )
-        .mutation(({ input: { name, description, userID } }) => {
-            const newDeck = createDeck({
+        .mutation(({ input: { name, description, userID } }) =>
+            createDeck({
                 name,
                 description,
-                created_by: userID
+                created_by: userID,
             })
-            return newDeck
-        }),
+        ),
     getByUserID: procedure
         .input(z.object({ userID: z.string() }))
-        .query(({ input: { userID } }) => {
-            const userDecks = getDecksByUserID(userID)
-            return userDecks
-        })
+        .query(({ input: { userID } }) => getDecksByUserID(userID)),
 });
 
 // export type definition of API

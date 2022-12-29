@@ -1,5 +1,6 @@
-import { Connection, IDatabaseDriver, MikroORM } from "@mikro-orm/core";
+import { Connection, IDatabaseDriver, MikroORM } from '@mikro-orm/core';
 
 declare global {
-    var __MikroORM__: MikroORM<IDatabaseDriver<Connection>>
+    // eslint-disable-next-line
+    var __MikroORM__: MikroORM<IDatabaseDriver<Connection>>;
 }

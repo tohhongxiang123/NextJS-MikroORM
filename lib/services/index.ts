@@ -1,6 +1,4 @@
-import createDeck from "./createDeck";
-import getDecksByUserID from "./getDecksByUserID";
+import createDeck from './createDeck';
+import getDecksByUserID from './getDecksByUserID';
 
-export {
-    createDeck, getDecksByUserID
-};
+export { createDeck, getDecksByUserID };

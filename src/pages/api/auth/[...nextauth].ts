@@ -6,8 +6,8 @@ import GitHubProvider from 'next-auth/providers/github';
 const options: AuthOptions = {
     providers: [
         GitHubProvider({
-            clientId: process.env.GITHUB_ID!,
-            clientSecret: process.env.GITHUB_SECRET!,
+            clientId: process.env.GITHUB_ID ?? '',
+            clientSecret: process.env.GITHUB_SECRET ?? '',
         }),
     ],
     adapter: MikroOrmAdapter({
@@ -35,4 +35,4 @@ const options: AuthOptions = {
     },
 };
 
-export default NextAuth(options)
+export default NextAuth(options);
