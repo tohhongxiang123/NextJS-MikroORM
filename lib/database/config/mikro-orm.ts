@@ -11,7 +11,7 @@ const config: Options = {
     discovery: { disableDynamicFileAccess: false },
     debug: process.env.NODE_ENV === 'development',
     migrations: {
-        path: './migrations',
+        path: './lib/database/migrations',
     },
 };
 
