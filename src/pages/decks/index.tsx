@@ -2,7 +2,7 @@ import { SimpleGrid } from '@mantine/core';
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { getSession } from 'next-auth/react';
 import { Deck } from '../../../lib/entities';
-import { getDecksByUserID } from '../../../lib/services';
+import { deckService } from '../../../lib/services';
 import { CreateDeckComponent, DeckPreview, Layout } from '../../components';
 import { useRequireLogin } from '../../hooks';
 
@@ -37,7 +37,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
         };
     }
 
-    const decks = await getDecksByUserID(session.user.id);
+    const decks = await deckService.getDecksByUserID(session.user.id);
     return {
         props: {
             decks: JSON.parse(JSON.stringify(decks)) as Deck[],

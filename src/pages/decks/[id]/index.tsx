@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { Deck } from '../../../../lib/entities';
-import { getDeckByDeckID } from '../../../../lib/services';
+import { deckService } from '../../../../lib/services';
 import { Layout } from '../../../components';
 
 export default function DeckIDPage({
@@ -28,7 +28,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     if (!params) return;
 
     const deckID = parseInt(params.id as string);
-    const deck = await getDeckByDeckID(deckID);
+    const deck = await deckService.getDeckByDeckID(deckID);
 
     return {
         props: {

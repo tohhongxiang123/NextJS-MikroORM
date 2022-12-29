@@ -6,7 +6,8 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "eslint . --fix"
+        "lint": "eslint . --fix",
+        "test": "jest --config ./jest.config.js"
     },
     "mikro-orm": {
         "useTsNode": true,
@@ -47,6 +48,7 @@
         "zod": "^3.20.2"
     },
     "devDependencies": {
+        "@types/jest": "^29.2.4",
         "@typescript-eslint/eslint-plugin": "^5.47.1",
         "@typescript-eslint/parser": "^5.47.1",
         "autoprefixer": "^10.4.13",
@@ -61,10 +63,12 @@
         "eslint-plugin-simple-import-sort": "^8.0.0",
         "eslint-plugin-sonarjs": "^0.17.0",
         "husky": "^8.0.2",
+        "jest": "^29.3.1",
         "lint-staged": "^13.1.0",
         "postcss": "^8.4.20",
         "prettier": "^2.8.1",
         "tailwindcss": "^3.2.4",
+        "ts-jest": "^29.0.3",
         "ts-node": "^10.9.1"
     }
 }

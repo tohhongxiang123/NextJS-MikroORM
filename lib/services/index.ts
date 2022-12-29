@@ -1,5 +1,11 @@
-import createDeck from './createDeck';
-import getDeckByDeckID from './getDeckByDeckID';
-import getDecksByUserID from './getDecksByUserID';
+import { createDeckRepo, createUserRepo } from '../repositories';
+import { createDeckService } from './deck';
+import { createUserService } from './user';
 
-export { createDeck, getDecksByUserID, getDeckByDeckID };
+const deckRepo = createDeckRepo();
+const deckService = createDeckService(deckRepo);
+
+const userRepo = createUserRepo();
+const userService = createUserService(userRepo);
+
+export { deckService, userService };

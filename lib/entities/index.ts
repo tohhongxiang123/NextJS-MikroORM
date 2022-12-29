@@ -1,4 +1,9 @@
 import { Deck } from './Deck';
 import { User } from './User';
 
-export { User, Deck };
+const ENTITIES = {
+    Deck: 'Deck',
+    User: 'User',
+};
+
+export { ENTITIES, User, Deck };

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { createDeck, getDecksByUserID } from '../../../lib/services';
+import { deckService } from '../../../lib/services';
 import { procedure, router } from '../trpc';
 
 export const deckRouter = router({
@@ -12,7 +12,7 @@ export const deckRouter = router({
             })
         )
         .mutation(({ input: { name, description, userID } }) =>
-            createDeck({
+            deckService.createDeck({
                 name,
                 description,
                 created_by: userID,
@@ -20,7 +20,7 @@ export const deckRouter = router({
         ),
     getByUserID: procedure
         .input(z.object({ userID: z.string() }))
-        .query(({ input: { userID } }) => getDecksByUserID(userID)),
+        .query(({ input: { userID } }) => deckService.getDecksByUserID(userID)),
 });
 
 // export type definition of API
