@@ -8,7 +8,19 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "mikro-orm": {
+    "useTsNode": true,
+    "tsConfigPath": "./tsconfig.json",
+    "configPaths": [
+      "./lib/database/config/mikro-orm.ts"
+    ]
+  },
   "dependencies": {
+    "@mikro-orm/cli": "^5.6.3",
+    "@mikro-orm/core": "^5.6.3",
+    "@mikro-orm/migrations": "^5.6.3",
+    "@mikro-orm/postgresql": "^5.6.3",
+    "@next-auth/mikro-orm-adapter": "^3.0.1",
     "@next/font": "13.1.1",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
@@ -16,8 +28,13 @@
     "eslint": "8.30.0",
     "eslint-config-next": "13.1.1",
     "next": "13.1.1",
+    "next-auth": "^4.18.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "reflect-metadata": "^0.1.13",
     "typescript": "4.9.4"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
   }
 }
