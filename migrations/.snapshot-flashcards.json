@@ -161,6 +161,74 @@
       "columns": {
         "id": {
           "name": "id",
+          "type": "serial",
+          "unsigned": true,
+          "autoincrement": true,
+          "primary": true,
+          "nullable": false,
+          "mappedType": "integer"
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "created_by_id": {
+          "name": "created_by_id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "deck",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "deck_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "deck_created_by_id_foreign": {
+          "constraintName": "deck_created_by_id_foreign",
+          "columnNames": [
+            "created_by_id"
+          ],
+          "localTableName": "public.deck",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.user",
+          "updateRule": "cascade"
+        }
+      }
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
           "type": "varchar(255)",
           "unsigned": false,
           "autoincrement": false,
